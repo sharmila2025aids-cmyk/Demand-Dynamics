@@ -128,7 +128,7 @@ if df_skills is not None and df_jobs is not None:
     filtered_jobs = df_jobs[(df_jobs['Location'] == 'Coimbatore') & 
                             (df_jobs['Required Skills'].str.contains('GenAI|RAG', na=False))]
     st.dataframe(filtered_jobs[['Job Title', 'Company', 'Platform', 'Required Skills']], width="stretch")
-[10/11, 1:27 PM] G.Sharmila: # ==========================================
+# ==========================================
 # 3. AUTOMATIC WEB LINK GENERATOR FOR JURY
 # ==========================================
 if __name__ == "__main__":
