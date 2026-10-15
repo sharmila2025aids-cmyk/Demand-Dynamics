@@ -57,7 +57,7 @@ st.markdown("---")
 def load_data():
     try:
         # கிட்ஹப்பில் உள்ள சரியான கோப்பு பெயர்கள் இணைக்கப்பட்டுள்ளன
-        skills_df = pd.read_csv("demand_dynamics_extracted_data.csv")
+        skills_df = pd.read_csv("demand_dynamics_extracted_summary.csv")
         jobs_df = pd.read_csv("demand_dynamics_3years_3000.csv")
         return skills_df, jobs_df
     except FileNotFoundError:
