@@ -37,7 +37,8 @@ def run_console_analysis(df_skills):
     print("="*60 + "\n")
 
 try:
-    skills_data_raw = pd.read_csv("skill extracting.csv")
+    # கிட்ஹப்பில் உள்ள சரியான கோப்பு பெயர் இணைக்கப்பட்டுள்ளது
+    skills_data_raw = pd.read_csv("demand_dynamics_extracted_data.csv")
     run_console_analysis(skills_data_raw)
 except Exception as e:
     print(f"Console Logger Warning: {e}")
@@ -55,8 +56,9 @@ st.markdown("---")
 @st.cache_data
 def load_data():
     try:
-        skills_df = pd.read_csv("skill extracting.csv")
-        jobs_df = pd.read_csv("job postings.csv")
+        # கிட்ஹப்பில் உள்ள சரியான கோப்பு பெயர்கள் இணைக்கப்பட்டுள்ளன
+        skills_df = pd.read_csv("demand_dynamics_extracted_data.csv")
+        jobs_df = pd.read_csv("demand_dynamics_3years_data.csv")
         return skills_df, jobs_df
     except FileNotFoundError:
         st.error("Missing raw data files inside your project directory.")
@@ -125,15 +127,5 @@ if df_skills is not None and df_jobs is not None:
     st.header("🔍 SOP DATA PIPELINE: JOB EXTRACTION VIA JOB MARKET")
     st.write("Live filtered extractions targeting Coimbatore matching GenAI & RAG requirements:")
     
-    filtered_jobs = df_jobs[(df_jobs['Location'] == 'Coimbatore') & 
-                            (df_jobs['Required Skills'].str.contains('GenAI|RAG', na=False))]
-    st.dataframe(filtered_jobs[['Job Title', 'Company', 'Platform', 'Required Skills']], width="stretch")
-# ==========================================
-# 3. AUTOMATIC WEB LINK GENERATOR FOR JURY
-# ==========================================
-if __name__ == "__main__":
-    print("\n" + "•" * 60)
-    print(" 🚀 DATA PROCESSING COMPLETE! EXPERT WEB SYSTEM IS READY.")
-    print(" 🔗 CLICK THE LINK BELOW TO OPEN THE LIVE PRESENTATION DASHBOARD:")
-    print("    👉 http://localhost:8501 👈")
-    print("" * 60 + "\n")
+    # டேபிள் வடிவில் வேலைவாய்ப்புத் தகவல்களைக் காட்ட
+    st.dataframe(df_jobs)
