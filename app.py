@@ -38,7 +38,7 @@ def run_console_analysis(df_skills):
 
 try:
     # கிட்ஹப்பில் உள்ள சரியான கோப்பு பெயர் இணைக்கப்பட்டுள்ளது
-    skills_data_raw = pd.read_csv("demand_dynamics_extracted_data.csv")
+    skills_data_raw = pd.read_csv("demand_dynamics_extracted_summary.csv")
     run_console_analysis(skills_data_raw)
 except Exception as e:
     print(f"Console Logger Warning: {e}")
