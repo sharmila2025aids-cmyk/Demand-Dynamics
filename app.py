@@ -58,7 +58,7 @@ def load_data():
     try:
         # கிட்ஹப்பில் உள்ள சரியான கோப்பு பெயர்கள் இணைக்கப்பட்டுள்ளன
         skills_df = pd.read_csv("demand_dynamics_extracted_data.csv")
-        jobs_df = pd.read_csv("demand_dynamics_3years_data.csv")
+        jobs_df = pd.read_csv("demand_dynamics_3years_3000.csv")
         return skills_df, jobs_df
     except FileNotFoundError:
         st.error("Missing raw data files inside your project directory.")
